@@ -69,10 +69,18 @@ window.addEventListener('load', function() {
           'User-agent': 'Mozilla/4.0 (compatible) Greasemonkey',
           'Accept': 'application/atom+xml,application/xml,text/xml',
         },
+        
+        onerror: function(resp) {
+          throw 'There was an error in the Greasemonkey script \
+                  minify-urls-for-twitter.';
+        },
+        
         onload: function(response) {
           var response_html = response.responseText;
           var short_url = response_html.match(/id="short_url"\svalue="([^\s]+)"/);
-          if (short_url.constructor === Array && short_url.length === 2) {
+          if (short_url !== null &&
+                short_url.constructor === Array &&
+                  short_url.length === 2) {
             if (values.length === 0) {
               status.value = short_url[1] + ' ';
             }

@@ -1,7 +1,7 @@
 // Minify URLs For Twitter
-// version 0.1 BETA!
-// 2009-06-19
-// Copyright (c) 2008, Nate Agrin
+// version 1.0
+// 2009-05-13
+// Copyright (c) 2009, Nate Agrin
 // Released under the GPL license
 // http://www.gnu.org/copyleft/gpl.html
 //
@@ -69,18 +69,10 @@ window.addEventListener('load', function() {
           'User-agent': 'Mozilla/4.0 (compatible) Greasemonkey',
           'Accept': 'application/atom+xml,application/xml,text/xml',
         },
-        
-        onerror: function(resp) {
-          throw 'There was an error in the Greasemonkey script \
-                  minify-urls-for-twitter.';
-        },
-        
         onload: function(response) {
           var response_html = response.responseText;
           var short_url = response_html.match(/id="short_url"\svalue="([^\s]+)"/);
-          if (short_url !== null &&
-                short_url.constructor === Array &&
-                  short_url.length === 2) {
+          if (short_url.constructor === Array && short_url.length === 2) {
             if (values.length === 0) {
               status.value = short_url[1] + ' ';
             }
@@ -89,7 +81,7 @@ window.addEventListener('load', function() {
             }
             
             // ACCESSING THE UNSAFEWINDOW!!!
-            unsafeWindow.updateStatusTextCharCounter(status.value);
+            unsafeWindow.$(status).change();
           }
           if (typeof callback === 'function'){
             callback();

@@ -43,8 +43,8 @@
 // @name           Minify URLs for Twitter
 // @namespace      http://n8agrin.com/
 // @description    Minify recognizes any URLs in what you are typing and automatically shortens them using the "is.gd" service.
-// @include        http://twitter.com/home
-// @include        https://twitter.com/home
+// @include        http://twitter.com/*
+// @include        https://twitter.com/*
 // ==/UserScript==
 
 window.addEventListener('load', function() {

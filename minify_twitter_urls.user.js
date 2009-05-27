@@ -1,6 +1,6 @@
 // Minify URLs For Twitter
-// version 1.0
-// 2009-05-13
+// version 1.0.1
+// 2009-05-26
 // Copyright (c) 2009, Nate Agrin
 // Released under the GPL license
 // http://www.gnu.org/copyleft/gpl.html

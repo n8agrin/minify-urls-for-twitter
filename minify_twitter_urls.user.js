@@ -64,7 +64,7 @@ window.addEventListener('load', function() {
     if (http_re.test(last_value)) {
       GM_xmlhttpRequest({
         method: 'GET',
-        url: 'http://is.gd/create.php?longurl=' + last_value,
+        url: 'http://is.gd/create.php?longurl=' + encodeURIComponent(last_value),
         headers: {
           'User-agent': 'Mozilla/4.0 (compatible) Greasemonkey',
           'Accept': 'application/atom+xml,application/xml,text/xml',
